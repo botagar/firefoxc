@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  app:
+    image: firefoxc:latest
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /root/.Xauthority:/root/.Xauthority
+      - .mozilla:/root/.mozilla
+    devices:
+      - /dev/snd
+    network_mode: host
+    dns:
+     - 208.67.222.222
+     - 208.67.220.220
+     - 8.8.8.8
+     - 8.8.4.4
