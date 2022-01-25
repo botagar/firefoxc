@@ -1,4 +1,9 @@
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
-    firefox alsa-base alsa-utils pulseaudio socat ffmpeg libasound2-dev libglib2.0-dev
-CMD ["/usr/bin/firefox"]
+    firefox 
+RUN apt-get install -y \
+    dbus-x11 alsa-base alsa-utils \
+    pulseaudio pulseaudio-utils
+RUN adduser root pulse-access
+COPY launch-firefoxc.sh .
+CMD ["/launch-firefoxc.sh"]

@@ -6,11 +6,15 @@ services:
     build: .
     environment:
       - DISPLAY=${DISPLAY}
+      - PULSE_SERVER=tcp:127.0.0.1:4713
+    privileged: true
     volumes:
       - /root/.Xauthority:/root/.Xauthority
       - .mozilla:/root/.mozilla
     devices:
       - /dev/snd
+      - /dev/bus/usb
+      - Pulseovernetwork
     network_mode: host
     dns:
      - 208.67.222.222
