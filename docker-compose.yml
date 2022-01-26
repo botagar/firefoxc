@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  app:
+  firefoxc:
     image: firefoxc:latest
     build: .
     environment:
