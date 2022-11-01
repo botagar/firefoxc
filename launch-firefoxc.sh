@@ -4,6 +4,10 @@
 service dbus restart
 export $(dbus-launch)
 
+# Ensure packages are up to date
+apt update
+apt upgrade -y
+
 # Clean out any existing Pulse Audio config
 rm -rf /var/run/pulse /var/lib/pulse /root/.config/pulse
 
