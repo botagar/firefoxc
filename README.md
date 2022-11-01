@@ -13,6 +13,8 @@ To do this, run the following command
 xhost +si:localuser:root
 ```
 
+Note, the above command needs to be execute each time the host is power cycled.
+
 ### Audio
 
 We need to ensure that pulse audio network mode is enabled and allows connections over localhost.
@@ -32,7 +34,7 @@ Enable:
 
 ### Firefox Profile(s)
 
-Create a directory at the same level as the `docker-compose.yml` file called `.mozilla`.
+There should be a director at the same level as the `docker-compose.yml` file called `.mozilla`.
 
 When the container starts up, it will use that directory for all it's profile needs.
 
@@ -43,5 +45,5 @@ docker-compose build
 ```
 
 ```shell
-docker-compose up
+docker-compose up -d
 ```
