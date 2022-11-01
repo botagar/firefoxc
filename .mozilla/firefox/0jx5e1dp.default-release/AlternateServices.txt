@@ -1,0 +1,2 @@
+https:tracking-protection.cdn.mozilla.net:443:.:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:3	0	19297	https:tracking-protection.cdn.mozilla.net:443:tracking-protection.cdn.mozilla.net:443::n:1669872159:h3:y:1667280158:n:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:|n:y:
+https:firefox.settings.services.mozilla.com:443:.::3	0	19297	https:firefox.settings.services.mozilla.com:443:firefox.settings.services.mozilla.com:443::n:1669872158:h3:y:1667280158:n::|n:y:
