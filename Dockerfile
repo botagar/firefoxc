@@ -6,5 +6,10 @@ RUN apt-get install -y \
     pulseaudio pulseaudio-utils \
     libavcodec-extra
 RUN adduser root pulse-access
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    language-pack-ja japan* \
+    language-pack-zh* chinese* \
+    language-pack-ko korean* \
+    fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
 COPY launch-firefoxc.sh .
 CMD ["/launch-firefoxc.sh"]
