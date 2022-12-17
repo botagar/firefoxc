@@ -11,6 +11,7 @@ services:
     volumes:
       - /root/.Xauthority:/root/.Xauthority
       - .mozilla:/root/.mozilla
+      - ffc_downloads:/root/Downloads
     devices:
       - /dev/snd
       - /dev/bus/usb
