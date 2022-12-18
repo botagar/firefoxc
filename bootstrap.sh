@@ -1,4 +1,5 @@
 #!/bin/bash
+pkg_manager='apt-get'
 
 install_brew () {
     if ! command -v brew &> /dev/null
@@ -37,16 +38,40 @@ install_pulumi () {
         echo "Pulumi could not be found"
         curl -fsSL https://get.pulumi.com | sh
     fi
+    echo "Pulumi installed"
+}
+
+install_terraform () {
+    if ! command -v terraform &> /dev/null
+    then
+        wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+        sudo nala update && sudo nala install -y terraform
+    fi
+    echo "Terraform installed"
+}
+
+install_nvm () {
+    if ! command -v pulumi &> /dev/null
+    then
+        echo "nvm could not be found"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    fi
+    echo "nvm installed"
 }
 
 sudo apt-get install -y nala
 sudo nala update && sudo nala upgrade -y
 sudo nala install -y ansible docker podman podman-docker paprefs
 
+install_nvm
 install_awscli
 install_brew
 install_pulumi
+install_terraform
 
+nvm install node
+nvm use node
 brew install aws-vault
 
 # Eventually automate FF setup with extensions so the whole profile doesn't need to be checked in
