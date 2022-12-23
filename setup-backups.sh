@@ -13,6 +13,10 @@ aws-vault exec firefoxc_bootstrap --no-session -- \
     terraform apply -auto-approve -var project_name=$PROJECT_NAME -var aws_region=$AWS_REGION
 
 echo "Setting up daily backup schedule"
-BACKUP_SCRIPT_PATH="/etc/cron.daily/firefoxc_backup_$PROJECT_NAME.sh"
-echo "/bin/su -c \"aws s3 sync $PROJECT_ROOT/.mozilla s3://firefoxc-backups-$PROJECT_NAME --profile firefoxc_backup_$PROJECT_NAME\" - $USER" | sudo tee $BACKUP_SCRIPT_PATH > /dev/null
+sudo mkdir -p /var/log/firefoxc/$USER/
+sudo chown $USER /var/log/firefoxc/$USER/
+BACKUP_SCRIPT_PATH="/etc/cron.daily/firefoxc_backup_$PROJECT_NAME"
+echo "echo start \$(date +"%Y%m%d_%H%M%S") >> /var/log/firefoxc/$USER/runat" | sudo tee $BACKUP_SCRIPT_PATH > /dev/null
+echo "/bin/su -c \"aws s3 sync $PROJECT_ROOT/.mozilla s3://firefoxc-backups-$PROJECT_NAME --profile firefoxc_backup_$PROJECT_NAME > /var/log/firefoxc/$USER/s3_sync_$PROJECT_NAME.$(date +"%Y%m%d_%H%M%S").log\" - $USER" | sudo tee -a $BACKUP_SCRIPT_PATH > /dev/null
+echo "echo end \$(date +"%Y%m%d_%H%M%S") >> /var/log/firefoxc/$USER/runat" | sudo tee -a $BACKUP_SCRIPT_PATH > /dev/null
 sudo chmod a+x $BACKUP_SCRIPT_PATH
