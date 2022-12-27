@@ -23,5 +23,8 @@ aplay -l
 echo "PulseAudio Info"
 pactl info
 
+mkdir -p /opt/firefox/distribution/extensions
+cp /root/.mozilla/extensions/*.xpi /opt/firefox/distribution/extensions
+
 echo "Starting FireFox"
-/usr/bin/firefox
+/opt/firefox/firefox

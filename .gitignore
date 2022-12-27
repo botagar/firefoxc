@@ -1,4 +1,5 @@
-.mozilla
+.mozilla/firefox/*
+downloads/*
 *.tfstate
 *.tfstate.backup
 .terraform
