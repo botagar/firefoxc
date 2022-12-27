@@ -73,13 +73,3 @@ install_terraform
 nvm install node
 nvm use node
 brew install aws-vault
-
-# Eventually automate FF setup with extensions so the whole profile doesn't need to be checked in
-# xpi file needs to be unzipped into extensions directory in profile
-# OR do a global installation http://kb.mozillazine.org/Installing_extensions
-# https://addons.mozilla.org/firefox/downloads/file/4028976/ublock_origin-1.45.2.xpi
-# https://addons.mozilla.org/firefox/downloads/file/4042923/lastpass_password_manager-4.106.0.2.xpi
-# https://addons.mozilla.org/firefox/downloads/file/4008174/privacy_badger17-2022.9.27.xpi
-# https://addons.mozilla.org/firefox/downloads/file/4024031/facebook_container-2.3.9.xpi
-# https://addons.mozilla.org/firefox/downloads/file/4038684/multi_account_containers-8.0.9.xpi
-# https://addons.mozilla.org/firefox/downloads/file/4040817/video_downloadhelper-7.6.6.xpi

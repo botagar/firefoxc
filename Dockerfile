@@ -2,7 +2,7 @@ FROM debian:11
 RUN apt-get update && apt-get install -y
 RUN apt-get install -y \
     libdbus-glib-1-2 libgtk-3-0 \
-    wget bzip2 xmlstarlet unzip \
+    wget bzip2 unzip \
     dbus-x11 alsa-utils \
     pulseaudio pulseaudio-utils \
     libavcodec-extra
@@ -16,4 +16,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 RUN apt-get install -y fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
 COPY launch-firefoxc.sh ./
+RUN wget https://github.com/mi-g/vdhcoapp/releases/download/v1.6.3/net.downloadhelper.coapp-1.6.3-1_amd64.tar.gz -O /tmp/vdhcoapp_1_6_3.tar.gz
+RUN tar xf /tmp/vdhcoapp_1_6_3.tar.gz -C /root/
+RUN /root/net.downloadhelper.coapp-1.6.3/bin/net.downloadhelper.coapp-linux-64 install --system
 CMD ["/launch-firefoxc.sh"]
