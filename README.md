@@ -32,7 +32,7 @@ Enable:
   * Allow other machines on the LAN to discover local sound devices
   * Don't require authentication
 
-TODO: Explore modifying `/etc/pulse/default.pa` to load the network module instead of using paprefs - [Arch docs on PA](https://wiki.archlinux.org/title/PulseAudio/Examples#PulseAudio_over_network) | [Gist](https://gist.github.com/xarinatan/c415341ff34eab445cfb073988dcf6c1).
+TODO: Explore modifying `/etc/pulse/default.pa` to load the network module instead of using `paprefs` - [Arch docs on PA](https://wiki.archlinux.org/title/PulseAudio/Examples#PulseAudio_over_network) | [Gist](https://gist.github.com/xarinatan/c415341ff34eab445cfb073988dcf6c1).
 
 ### Backups
 
@@ -49,7 +49,7 @@ The directory `.mozilla` contains 2 subdirectories: `firefox` and `extensions`.
 
 `firefox` is the directory where firefox will store all profile data.
 
-Any valid extensions in the `.xpi` format found in the `extensions` direcotry will be automatically installed on firefox startup.
+Any valid extensions in the `.xpi` format found in the `extensions` directory will be automatically installed on firefox startup.
 
 ## Downloads
 
