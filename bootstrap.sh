@@ -62,7 +62,7 @@ install_nvm () {
 
 sudo apt-get install -y nala
 sudo nala update && sudo nala upgrade -y
-sudo nala install -y ansible docker podman podman-docker paprefs
+sudo nala install -y ansible docker paprefs
 
 install_nvm
 install_awscli
