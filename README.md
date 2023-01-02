@@ -32,6 +32,8 @@ Enable:
   * Allow other machines on the LAN to discover local sound devices
   * Don't require authentication
 
+TODO: Explore modifying `/etc/pulse/default.pa` to load the network module instead of using paprefs - [Arch docs on PA](https://wiki.archlinux.org/title/PulseAudio/Examples#PulseAudio_over_network) | [Gist](https://gist.github.com/xarinatan/c415341ff34eab445cfb073988dcf6c1).
+
 ### Backups
 
 TODO: Instructions on setting up the initial bootstrap AWS user.
