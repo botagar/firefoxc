@@ -2,7 +2,7 @@
 
 ## Host Setup and Configuration
 
-NOTE: Only tested on Kubuntu 20.04
+NOTE: Only tested Ubuntu flavours 22.04 and above.
 
 ### Graphics and Windows
 
@@ -32,11 +32,26 @@ Enable:
   * Allow other machines on the LAN to discover local sound devices
   * Don't require authentication
 
-### Firefox Profile(s)
+### Backups
 
-There should be a director at the same level as the `docker-compose.yml` file called `.mozilla`.
+TODO: Instructions on setting up the initial bootstrap AWS user.
 
-When the container starts up, it will use that directory for all it's profile needs.
+Run the script `./setup-backups.sh`, input your sudo password when prompted.
+
+This will setup an AWS S3 bucket, IAM user and cron job to backup your firefox profile every day.
+
+
+## Firefox Profile(s) and Addons
+
+The directory `.mozilla` contains 2 subdirectories: `firefox` and `extensions`.
+
+`firefox` is the directory where firefox will store all profile data.
+
+Any valid extensions in the `.xpi` format found in the `extensions` direcotry will be automatically installed on firefox startup.
+
+## Downloads
+
+Any files you download through this containerised firefox will be found in the `downloads` directory.
 
 ## Running the container
 
@@ -47,3 +62,7 @@ docker-compose build
 ```shell
 docker-compose up -d
 ```
+
+Enjoy~!
+
+Suggestions and Feedback welcome.
